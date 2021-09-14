@@ -17,8 +17,7 @@ RUN make
 
 # Create the network resources injector image
 FROM ${UBI_IMAGE}
-RUN yum update -y       && \
-    yum install -y bash && \
+RUN yum install -y bash && \
     rm -rf /var/cache/yum
 WORKDIR /
 COPY --from=builder /go/network-resources-injector/bin/webhook /usr/bin/
